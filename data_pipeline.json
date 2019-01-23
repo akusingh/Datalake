@@ -1,0 +1,115 @@
+{
+  "objects": [
+    {
+      "dependsOn": {
+        "ref": "ShellCommandActivityId_nDKIi"
+      },
+      "name": "CRIME-DATA-CLEANSING",
+      "runsOn": {
+        "ref": "ResourceId_pA7yp"
+      },
+      "id": "ShellCommandActivityId_SBAN5",
+      "type": "ShellCommandActivity",
+      "command": "#{myEnvironmentVariables}\ncd /home/ec2-user/test-datalake/\npython run.py crime_data_cleansing -a #{myS3} -a #{myTargetBucketName}"
+    },
+    {
+      "name": "Bit Bucket Configuration_Raw",
+      "runsOn": {
+        "ref": "ResourceId_pA7yp"
+      },
+      "id": "ShellCommandActivityId_Cm09a",
+      "type": "ShellCommandActivity",
+      "command": "cd /home/ec2-user \ngit clone git@bitbucket.org:DataLake/yesy-datalake.git\ncd /home/ec2-user/test-datalake \ngit checkout dev\ngit checkout -b issue-01\ngit pull origin issue-01\n#{myEnvironmentVariables}\naws s3 sync s3://test-datalake-code/datapipeline/crime_data/ /home/ec2-user/\nsudo python -m pip install awscli --upgrade\nsudo python -m pip install cloud-init --upgrade\nsudo python -m pip install boto3 --upgrade"
+    },
+    {
+      "role": "DataPipelineDefaultRole",
+      "subject": "PIPELINE-FAIL",
+      "name": "SNS",
+      "id": "ActionId_uAjpm",
+      "message": "Pipeline Fail",
+      "type": "SnsAlarm",
+      "topicArn": "arn:aws:sns:ap-southeast-1:111979927424:crime-data"
+    },
+    {
+      "failureAndRerunMode": "CASCADE",
+      "resourceRole": "DataPipelineDefaultResourceRole",
+      "role": "DataPipelineDefaultRole",
+      "pipelineLogUri": "s3://test-datalake/logs/",
+      "scheduleType": "ONDEMAND",
+      "name": "Default",
+      "id": "Default"
+    },
+    {
+      "subnetId": "subnet-145d4170",
+      "resourceRole": "test-datalake-account-s3-access",
+      "role": "DataPipelineDefaultRole",
+      "imageId": "ami-412e233d",
+      "instanceCount": "1",
+      "securityGroupIds": "sg-53cf3235",
+      "instanceType": "t2.micro",
+      "name": "EC2",
+      "keyPair": "DL-Dev",
+      "id": "ResourceId_pA7yp",
+      "type": "Ec2Resource",
+      "region": "ap-southeast-1"
+    },
+    {
+      "dependsOn": {
+        "ref": "ShellCommandActivityId_Cm09a"
+      },
+      "name": "CRIME-DATA-RAW-INGESTION",
+      "runsOn": {
+        "ref": "ResourceId_pA7yp"
+      },
+      "id": "ShellCommandActivityId_nDKIi",
+      "type": "ShellCommandActivity",
+      "command": "#{myEnvironmentVariables}\ncd /home/ec2-user/test-datalake/\npython run.py crime_data_ingestion -a #{DropBoxUrl} -a #{myTargetBucketName} -a #{WeatherS3path} -a #{CrimeUrl} -a #{CrimeS3path}"
+    }
+  ],
+  "parameters": [
+    {
+      "default": "default",
+      "description": "S3 Bucket",
+      "id": "CrimeS3path",
+      "type": "String"
+    },
+    {
+      "default": "astro-datalake-nprod-content",
+      "description": "S3 Bucket Name",
+      "id": "myTargetBucketName",
+      "type": "String"
+    },
+    {
+      "default": "default",
+      "description": "Environment variables",
+      "id": "myEnvironmentVariables",
+      "type": "String"
+    },
+    {
+      "default": "default",
+      "description": "S3 url crime data",
+      "id": "CrimeUrl",
+      "type": "String"
+    },
+    {
+      "default": "default",
+      "description": "dropbox url",
+      "id": "DropBoxUrl",
+      "type": "String"
+    },
+    {
+      "default": "default",
+      "description": "S3 path",
+      "id": "WeatherS3path",
+      "type": "String"
+    }
+  ],
+  "values": {
+    "myEnvironmentVariables": "export SNS_TOPIC_ARN=arn:aws:sns:ap-southeast-1:111979927424:crime-data",
+    "CrimeS3path": "raw/tx-Data/crime-data/",
+    "CrimeUrl": "http://s3-us-gov-west-1.amazonaws.com/cg-d4b776d0-d898-4153-90c8-8336f86bdfec/2017/TX-2017.zip",
+    "WeatherS3path": "raw/weather-Data/weather.csv",
+    "DropBoxUrl": "https://www.dropbox.com/s/29b85ihtoysmveu/DFV-Daily-Weather-2017.tsv?raw=1",
+    "myTargetBucketName": "test-datalake-content"
+  }
+}

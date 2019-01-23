@@ -1,0 +1,21 @@
+Data profiling OUtput:-
+-----------------------
+
+Issue 0 : .PDF and .md extension file available at source.
+Issue 0.1 : File name case not insync
+Issue 1 : White spaces in column Names [TX]
+Issue 2 : (a) ',' in data in ',' separated file [Space after ',']
+		  (b) Space after ',' delimiter in column name
+		  (c) Null values in few columns. [Space/blank after ',']
+Issue 2.1 : '0' column is getting created after parsing csv as a solution for issue 2.
+Issue 3 : '-' in file after header.
+Issue 4 : '' in file at first line. Header is available at second line.
+Issue 5 : Mis-alligned/Whitespaces in data.
+Issue 6 : Column name available in data multiple times.
+Issue 6.1 : Stripping column names from data and replacing with Nan causes NaN issue. Later removing NaN might lead to drop of significant amount of data. 
+Issue 7 : No columns/data available. [NIBRS_BIAS_MOTIVATION]
+Issue 8 : NaN in data. [NIBRS_ARRESTEE,NIBRS_incident]
+Issue 9 : Incomplete column_names. [NIBRS_incident.SUBMISSIO,OFFENCE_TYPE.OFFEN,PROP_DESC.Date_Reco,NIBRS_ARRESTEE.Arrest_da]
+Issue 10 : Extended column_names. [NIBRS_incident.INCIDENT_,MOnth.Prepared_]
+Issue 11 : Blank values in multiple files.
+Issue 12 : '.' dot in column name.

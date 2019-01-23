@@ -1,0 +1,2801 @@
+Data Profiling:
+---------------
+
+#Parsing errors need rectification infile
+#Mixed datatypes need more optimized solution
+
+NIBRS_USING_LIST.rename(columns=lambda x: x.strip()) # stripping space from column name)
+
+
+[1] NIBRS_AGE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_AGE.csv',comment='-').rename(columns=lambda x: x.strip())
+RangeIndex: 7 entries, 0 to 6
+Data columns (total 3 columns):
+    AGE_ID                                                                                              7 non-null object -- space/tab in column name
+AG                                                                                                      7 non-null object
+AGE_NAME                                                                                                7 non-null object
+dtypes: object(3)
+
+Index([u'    AGE_ID', u'AG',
+       u'AGE_NAME                                                                                            '],
+      dtype='object')
+
+NIBRS_AGE.AGE_ID.value_counts(dropna=False).head(1000)
+
+
+
+[2] NIBRS_ACTIVITY_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_ACTIVITY_TYPE.csv') --ParserError: Error tokenizing data. C error: Expected 3 fields in line 9, saw 5
+
+
+NIBRS_ASSIGNMENT_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_ASSIGNMENT_TYPE.csv')
+RangeIndex: 8 entries, 0 to 7
+Data columns (total 3 columns):
+Index([u'ASSIGNMENT_TYPE_ID', u'A',
+       u'ASSIGNMENT_TYPE_NAME                                                                                '], -- Space/tab in column name
+      dtype='object')
+NIBRS_ASSIGNMENT_TYPE.ASSIGNMENT_TYPE_ID.value_counts(dropna=False).head(1000)   
+Out[128]: 
+------------------    1
+                 5    1
+                 4    1
+                 7    1
+                 6    1
+                 1    1
+                 3    1
+                 2    1
+                                                                                   8 non-null object
+NIBRS_ASSIGNMENT_TYPE.A.value_counts(dropna=False).head(1000)   
+L    1
+-    1
+J    1
+K    1
+H    1
+I    1
+F    1
+G    1                                                                                                    8 non-null object
+NIBRS_ASSIGNMENT_TYPE.ASSIGNMENT_TYPE_NAME.value_counts(dropna=False).head(1000)
+                                                                                    8 non-null object
+dtypes: object(3)
+
+NIBRS_AGE.AGE_ID.value_counts(dropna=False).head(1000)
+
+[3] NIBRS_ARREST_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_ARREST_TYPE.csv')
+Index([u'ARREST_TYPE_ID', u'A',
+       u'ARREST_TYPE_NAME                                                                                    '], ---- Space/tab in column name 
+      dtype='object')
+
+RangeIndex: 4 entries, 0 to 3
+Data columns (total 3 columns):
+NIBRS_ARREST_TYPE.ARREST_TYPE_ID.value_counts(dropna=False).head(1000)                                                                                          4 non-null object
+Out[137]: 
+             1    1
+             3    1
+             2    1
+--------------    1
+
+NIBRS_ARREST_TYPE.A.value_counts(dropna=False).head(1000)                                                                                                       4 non-null object
+Out[138]: 
+O    1
+T    1
+-    1
+S    1
+Name: A, dtype: int64
+NIBRS_ARREST_TYPE.ARREST_TYPE_NAME.value_counts(dropna=False).head(1000)                                                                                        4 non-null object
+dtypes: object(3)
+
+
+[4] NIBRS_CIRCUMSTANCES=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_CIRCUMSTANCES.csv')
+Index([u'CIRCUMSTANCES_ID', u'C', u'CIRCUMSTANCES_CODE',
+       u'CIRCUMSTANCES_NAME                                                                                  '],
+      dtype='object')
+
+RangeIndex: 18 entries, 0 to 17
+Data columns (total 4 columns):
+NIBRS_CIRCUMSTANCES.CIRCUMSTANCES_ID.value_counts(dropna=False).head(1000)
+Out[143]: 
+              14    1
+              15    1
+               1    1
+               2    1
+               3    1
+               4    1
+               5    1
+               6    1
+               7    1
+               8    1
+               9    1
+              13    1
+              12    1
+              11    1
+              10    1
+              17    1
+              16    1
+----------------    1                                                                                        18 non-null object
+NIBRS_CIRCUMSTANCES.C.value_counts(dropna=False).head(1000)
+Out[144]: 
+A    10
+N     5
+J     2
+-     1                                                                                                       18 non-null object
+NIBRS_CIRCUMSTANCES.CIRCUMSTANCES_CODE.value_counts(dropna=False).head(1000)
+Out[145]: 
+                34    1
+                30    1
+                 3    1
+                 1    1
+                 6    1
+                 7    1
+                 4    1
+                 5    1
+------------------    1
+                 8    1
+                 9    1
+                10    1
+                20    1
+                21    1
+                33    1
+                32    1
+                31    1
+                 2    1                                                                                      18 non-null object
+NIBRS_CIRCUMSTANCES.CIRCUMSTANCES_NAME.value_counts(dropna=False).head(1000)                                                                                      18 non-null object
+dtypes: object(4)
+
+
+[5] NIBRS_BIAS_LIST=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_BIAS_LIST.csv') --ParserError: Error tokenizing data. C error: Expected 4 fields in line 8, saw 5
+[6] NIBRS_CLEARED_EXCEPT=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_CLEARED_EXCEPT.csv') --ParserError: Error tokenizing data. C error: Expected 4 fields in line 8, saw 6
+[7] NIBRS_CRIMINAL_ACT_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_CRIMINAL_ACT_TYPE.csv')  --ParserError: Error tokenizing data. C error: Expected 4 fields in line 5, saw 5
+[8] NIBRS_DRUG_MEASURE_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_DRUG_MEASURE_TYPE.csv')
+Index([u'DRUG_MEASURE_TYPE_ID', u'DR',
+       u'DRUG_MEASURE_NAME                                                                                   '],
+      dtype='object')
+
+RangeIndex: 12 entries, 0 to 11
+Data columns (total 3 columns):
+NIBRS_DRUG_MEASURE_TYPE.DRUG_MEASURE_TYPE_ID.value_counts(dropna=False).head(1000)                                                                                    12 non-null object
+Out[149]: 
+                   9    1
+                   8    1
+                  11    1
+                   5    1
+                   3    1
+                   2    1
+                   1    1
+                  10    1
+                   7    1
+                   6    1
+                   4    1
+--------------------    1
+NIBRS_DRUG_MEASURE_TYPE.DR.value_counts(dropna=False).head(1000)                                                                                                      12 non-null object
+FO    1
+NP    1
+GL    1
+GM    1
+ML    1
+--    1
+DU    1
+OZ    1
+LB    1
+XX    1
+LT    1
+KG    1
+NIBRS_DRUG_MEASURE_TYPE.DRUG_MEASURE_NAME.value_counts(dropna=False).head(1000)                                                                                       12 non-null object
+dtypes: object(3)
+
+[9] NIBRS_INJURY=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_INJURY.csv')
+Index([u' INJURY_ID', u'I',
+       u'INJURY_NAME                                                                                         '],
+      dtype='object')
+
+RangeIndex: 9 entries, 0 to 8
+Data columns (total 3 columns):
+ INJURY_ID                                                                                              9 non-null object ---- Space/tab in column name
+NIBRS_INJURY.I.value_counts(dropna=False).head(1000)                                                                                                       9 non-null object
+Out[154]: 
+N    1
+O    1
+L    1
+-    1
+T    1
+I    1
+M    1
+U    1
+B    1
+
+INJURY_NAME                                                                                             9 non-null object ---- Space/tab in column name
+dtypes: object(3)
+
+
+[10] NIBRS_ETHNICITY=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_ETHNICITY.csv')
+Index([u'ETHNICITY_ID', u'E',
+       u'ETHNICITY_NAME                                                                                      '],
+      dtype='object')
+
+Data columns (total 3 columns):
+NIBRS_ETHNICITY.ETHNICITY_ID.value_counts(dropna=False).head(1000)                                                                                            5 non-null object
+Out[158]: 
+           3    1
+           2    1
+           1    1
+           4    1
+------------    1
+NIBRS_ETHNICITY.E.value_counts(dropna=False).head(1000)                                                                                                       5 non-null object
+N    1
+M    1
+-    1
+U    1
+H    1
+NIBRS_ETHNICITY.ETHNICITY_NAME                                                                                          5 non-null object  ---- Space/tab in column name
+dtypes: object(3)
+
+[11] NIBRS_LOCATION_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_LOCATION_TYPE.csv')
+Index([u'LOCATION_ID', u'LO',
+       u'LOCATION_NAME                                                                                       '],
+      dtype='object')
+
+RangeIndex: 48 entries, 0 to 47
+Data columns (total 3 columns):
+NIBRS_LOCATION_TYPE.LOCATION_ID.value_counts(dropna=False).head(1000)                                                                                             48 non-null object
+         16    1
+          5    1
+         47    1
+         39    1
+         44    1
+         11    1
+         25    1
+         38    1
+         22    1
+         23    1
+         15    1
+         14    1
+         13    1
+         24    1
+         10    1
+         17    1
+         35    1
+          4    1
+         28    1
+         29    1
+         31    1
+         30    1
+         19    1
+         33    1
+         12    1
+         26    1
+         46    1
+          6    1
+          7    1
+          0    1
+          1    1
+          2    1
+          3    1
+         37    1
+         42    1
+         21    1
+          8    1
+         45    1
+-----------    1
+         41    1
+         20    1
+         40    1
+         34    1
+         36    1
+         27    1
+         32    1
+         43    1
+         18    1
+NIBRS_LOCATION_TYPE.LO.value_counts(dropna=False).head(1000)                                                                                                      48 non-null object
+54    1
+16    1
+23    1
+46    1
+53    1
+22    1
+47    1
+51    1
+12    1
+39    1
+19    1
+21    1
+44    1
+49    1
+11    1
+58    1
+20    1
+57    1
+10    1
+09    1
+17    1
+55    1
+42    1
+13    1
+02    1
+03    1
+38    1
+52    1
+50    1
+48    1
+24    1
+40    1
+15    1
+41    1
+14    1
+25    1
+37    1
+00    1
+45    1
+08    1
+18    1
+--    1
+05    1
+04    1
+07    1
+06    1
+01    1
+56    1
+NIBRS_LOCATION_TYPE.LOCATION_NAME                                                                                           48 non-null object. ------ Space/tab in column name
+dtypes: object(3)
+
+[12] NIBRS_JUSTIFIABLE_FORCE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_JUSTIFIABLE_FORCE.csv')
+Index([u'JUSTIFIABLE_FORCE_ID', u'J',
+       u'JUSTIFIABLE_FORCE_NAME                                                                              '],  --------- Space/tab in column name
+      dtype='object')
+
+RangeIndex: 9 entries, 0 to 8
+Data columns (total 3 columns):
+NIBRS_JUSTIFIABLE_FORCE.JUSTIFIABLE_FORCE_ID.value_counts(dropna=False).head(1000)                                                                                    9 non-null object
+                   8    1
+                   5    1
+                   3    1
+                   2    1
+                   1    1
+                   7    1
+                   6    1
+                   4    1
+--------------------    1
+NIBRS_JUSTIFIABLE_FORCE.J.value_counts(dropna=False).head(1000)                                                                                                       9 non-null object
+U    1
+-    1
+F    1
+G    1
+D    1
+E    1
+B    1
+C    1
+A    1
+NIBRS_JUSTIFIABLE_FORCE.JUSTIFIABLE_FORCE_NAME                                                                                  9 non-null object ---- Space/tab in column name
+dtypes: object(3)
+
+[13] NIBRS_OFFENSE_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_OFFENSE_TYPE.csv') --ParserError: Error tokenizing data. C error: Expected 9 fields in line 9, saw 10
+
+
+
+
+
+
+[14] NIBRS_PROP_DESC_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_PROP_DESC_TYPE.csv',comment='-').rename(columns=lambda x: x.strip()) --ParserError: Error tokenizing data. C error: Expected 3 fields in line 60, saw 4
+
+NIBRS_PROP_DESC_TYPE = pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_PROP_DESC_TYPE.csv', sep=r',(?!\s)',engine='python').rename(columns=lambda x: x.strip())
+Index([u'PROP_DESC_ID', u'PR', u'PROP_DESC_NAME'], dtype='object')
+RangeIndex: 69 entries, 0 to 68
+Data columns (total 3 columns):
+PROP_DESC_ID      69 non-null object
+PR                69 non-null object
+PROP_DESC_NAME    69 non-null object
+dtypes: object(3)
+
+NIBRS_PROP_DESC_TYPE.PROP_DESC_NAME = [x.replace(',','/') for x in NIBRS_PROP_DESC_TYPE.PROP_DESC_NAME]
+NIBRS_PROP_DESC_TYPE.to_csv('/Users/arunsingh/Downloads/TX/NIBRS_PROP_DESC_TYPE_NEW.csv',sep=',')    #Index getting added along with '-'
+NIBRS_PROP_DESC_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_PROP_DESC_TYPE_NEW.csv',comment='-').rename(columns=lambda x: x.strip())
+
+
+
+
+
+[15] NIBRS_PROP_LOSS_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_PROP_LOSS_TYPE.csv') --ParserError: Error tokenizing data. C error: Expected 3 fields in line 10, saw 9
+NIBRS_PROP_DESC_TYPE = pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_PROP_DESC_TYPE.csv', sep=r',(?!\s)',engine='python').rename(columns=lambda x: x.strip())
+
+
+
+
+
+[16] NIBRS_RELATIONSHIP=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_RELATIONSHIP.csv')
+Index([u'RELATIONSHIP_ID', u'RE',
+       u'RELATIONSHIP_NAME                                                                                   '],
+      dtype='object')
+
+RangeIndex: 27 entries, 0 to 26
+Data columns (total 3 columns):
+NIBRS_RELATIONSHIP.RELATIONSHIP_ID.value_counts(dropna=False).head(1000)                                                                                         27 non-null object
+              1    1
+              6    1
+             18    1
+             19    1
+             21    1
+             20    1
+             16    1
+             17    1
+             10    1
+             24    1
+             12    1
+             13    1
+             26    1
+             25    1
+              2    1
+             11    1
+             22    1
+---------------    1
+             23    1
+              9    1
+              8    1
+              7    1
+             14    1
+              5    1
+              4    1
+              3    1
+             15    1
+
+NIBRS_RELATIONSHIP.RE.value_counts(dropna=False).head(1000)                                                                                                      27 non-null object
+SE    1
+ER    1
+FR    1
+BG    1
+GP    1
+HR    1
+CF    1
+VO    1
+AQ    1
+GC    1
+SS    1
+CS    1
+XS    1
+EE    1
+IL    1
+OK    1
+--    1
+OF    1
+SP    1
+NE    1
+RU    1
+ST    1
+PA    1
+CH    1
+SC    1
+SB    1
+BE    1
+NIBRS_RELATIONSHIP.RELATIONSHIP_NAME                                                                                       27 non-null object ---- Space/tab in column name
+dtypes: object(3)
+
+[17] NIBRS_USING_LIST=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_USING_LIST.csv')
+NIBRS_USING_LIST.rename(columns=lambda x: x.strip(),inplace=True)
+Index([u'SUSPECT_USING_ID', u'S', u'SUSPECT_USING_NAME'], dtype='object')
+
+RangeIndex: 5 entries, 0 to 4
+Data columns (total 3 columns):
+NIBRS_USING_LIST.SUSPECT_USING_ID.value_counts(dropna=False).head(1000)      5 non-null object
+               4    1
+               3    1
+               2    1
+               1    1
+----------------    1
+NIBRS_USING_LIST.S.value_counts(dropna=False).head(1000)                     5 non-null object
+Out[185]: 
+N    1
+D    1
+-    1
+C    1
+A    1
+
+NIBRS_USING_LIST.SUSPECT_USING_NAME.value_counts(dropna=False).head(1000)    5 non-null object
+Drugs/Narcotics                                                                                         1
+Not Applicable                                                                                          1
+Computer Equipment                                                                                      1
+Alcohol                                                                                                 1
+----------------------------------------------------------------------------------------------------    1
+dtypes: object(3)
+
+
+
+[18] NIBRS_SUSPECTED_DRUG_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_SUSPECTED_DRUG_TYPE.csv')
+NIBRS_SUSPECTED_DRUG_TYPE.rename(columns=lambda x: x.strip(),inplace=True)
+
+RangeIndex: 19 entries, 0 to 18
+Data columns (total 3 columns):
+NIBRS_SUSPECTED_DRUG_TYPE.SUSPECTED_DRUG_TYPE_ID.value_counts(dropna=False).head(1000)    19 non-null object
+                    18    1
+                     9    1
+                     7    1
+                     4    1
+                     5    1
+                     2    1
+                     3    1
+                     1    1
+                     8    1
+                    15    1
+----------------------    1
+                    14    1
+                    17    1
+                    16    1
+                    11    1
+                    10    1
+                    13    1
+                    12    1
+                     6    1
+NIBRS_SUSPECTED_DRUG_TYPE.S.value_counts(dropna=False).head(1000)                         19 non-null object
+M    1
+H    1
+C    1
+B    1
+E    1
+D    1
+G    1
+F    1
+I    1
+K    1
+X    1
+J    1
+-    1
+L    1
+O    1
+N    1
+P    1
+U    1
+A    1
+NIBRS_SUSPECTED_DRUG_TYPE.SUSPECTED_DRUG_NAME.value_counts(dropna=False).head(1000)       19 non-null object
+PCP                                                                                                     1
+More Than 3 Types                                                                                       1
+Other Stimulants                                                                                        1
+Opium                                                                                                   1
+Meth/ Amphetamines                                                                                      1
+LSD                                                                                                     1
+Morphine                                                                                                1
+Heroin                                                                                                  1
+Other Hallucingens                                                                                      1
+Unknown                                                                                                 1
+Other Depressants                                                                                       1
+Cocaine                                                                                                 1
+----------------------------------------------------------------------------------------------------    1
+Other Drugs                                                                                             1
+Barbiturates                                                                                            1
+Hashish                                                                                                 1
+Crack Cocaine                                                                                           1
+Other Narcotics                                                                                         1
+Marijuana                                                                                               1
+Name: SUSPECTED_DRUG_NAME, dtype: int64
+
+dtypes: object(3)
+
+
+
+
+
+[19] NIBRS_WEAPON_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_WEAPON_TYPE.csv').rename(columns=lambda x: x.strip())
+Index([u'WEAPON_ID', u'WEA', u'WEAPON_NAME', u'S'], dtype='object')
+
+RangeIndex: 29 entries, 0 to 28
+Data columns (total 4 columns):
+NIBRS_WEAPON_TYPE.WEAPON_ID.value_counts(dropna=False).head(1000)      29 non-null object
+        26    1
+        18    1
+        20    1
+         8    1
+         9    1
+         2    1
+         3    1
+        21    1
+         1    1
+         6    1
+         7    1
+         4    1
+         5    1
+        19    1
+        28    1
+        17    1
+        11    1
+        10    1
+        13    1
+        12    1
+        15    1
+        14    1
+        22    1
+        23    1
+        24    1
+        16    1
+        25    1
+----------    1
+        27    1
+NIBRS_WEAPON_TYPE.WEA.value_counts(dropna=False).head(1000)            29 non-null object
+95     1
+70     1
+13     1
+20     1
+11     1
+12     1
+16     1
+17     1
+---    1
+15     1
+75     1
+60     1
+14     1
+30     1
+55     1
+99     1
+12A    1
+13A    1
+11A    1
+65     1
+40     1
+80     1
+35     1
+50     1
+15A    1
+90     1
+85     1
+14A    1
+01     1
+NIBRS_WEAPON_TYPE.WEAPON_NAME.value_counts(dropna=False).head(1000)    29 non-null object
+Blunt Object                                                                                            1
+Club/Blackjack/Brass Knuckles                                                                           1
+Drugs/Narcotics/Sleeping Pills                                                                          1
+Personal Weapons                                                                                        1
+Firearm (Automatic)                                                                                     1
+Motor Vehicle                                                                                           1
+Unarmed                                                                                                 1
+None                                                                                                    1
+Other Firearm                                                                                           1
+Firearm                                                                                                 1
+Unknown                                                                                                 1
+----------------------------------------------------------------------------------------------------    1
+Lethal Cutting Instrument                                                                               1
+Shotgun (Automatic)                                                                                     1
+Shotgun                                                                                                 1
+Knife/Cutting Instrument                                                                                1
+Rifle                                                                                                   1
+Asphyxiation                                                                                            1
+Handgun                                                                                                 1
+Fire/Incendiary Device                                                                                  1
+Handgun (Automatic)                                                                                     1
+Poison                                                                                                  1
+Drowning                                                                                                1
+Explosives                                                                                              1
+Other                                                                                                   1
+Other Firearm (Automatic)                                                                               1
+Pushed or Thrown Out Window                                                                             1
+Rifle (Automatic)                                                                                       1
+Strangulation - Include Hanging                                                                         1
+Name: WEAPON_NAME, dtype: int64
+
+NIBRS_WEAPON_TYPE.S.value_counts(dropna=False).head(1000)              29 non-null object
+Y    17
+N    11
+-     1
+
+[20] NIBRS_VICTIM_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_VICTIM_TYPE.csv').rename(columns=lambda x: x.strip())
+Index([u'VICTIM_TYPE_ID', u'V', u'VICTIM_TYPE_NAME'], dtype='object')
+
+RangeIndex: 10 entries, 0 to 9
+Data columns (total 3 columns):
+NIBRS_VICTIM_TYPE.VICTIM_TYPE_ID.value_counts(dropna=False).head(1000)      10 non-null object
+             1    1
+             3    1
+             2    1
+             5    1
+             4    1
+             7    1
+--------------    1
+             9    1
+             8    1
+             6    1
+NIBRS_VICTIM_TYPE.V.value_counts(dropna=False).head(1000)                   10 non-null object
+O    1
+L    1
+-    1
+R    1
+I    1
+F    1
+G    1
+U    1
+B    1
+S    1
+NIBRS_VICTIM_TYPE.VICTIM_TYPE_NAME.value_counts(dropna=False).head(1000)    10 non-null object
+Unknown                                                                                                 1
+Society/Public                                                                                          1
+Business                                                                                                1
+Financial Institution                                                                                   1
+Other                                                                                                   1
+Individual                                                                                              1
+Law Enforcement Officer                                                                                 1
+Religious Organization                                                                                  1
+Government                                                                                              1
+----------------------------------------------------------------------------------------------------    1
+dtypes: object(3)
+
+
+
+
+
+[21] NIBRS_ARRESTEE_WEAPON=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_ARRESTEE_WEAPON.csv',comment='-').rename(columns=lambda x: x.strip())
+#File is divided
+Index([u'DATA_YEAR', u'ARRESTEE_ID', u'WEAPON_ID',
+       u'NIBRS_ARRESTEE_WEAPON_ID'],
+      dtype='object')
+
+
+
+RangeIndex: 82631 entries, 0 to 82630
+Data columns (total 4 columns):
+NIBRS_ARRESTEE_WEAPON.DATA_YEAR.value_counts(dropna=False).head(1000)                   82631 non-null object
+      2017    82627
+    2017          1
+ DATA_YEAR        1
+  2017            1
+2017              1
+NIBRS_ARRESTEE_WEAPON.ARRESTEE_ID.value_counts(dropna=False).head(1000)                 82631 non-null object
+    1344946    2
+    1316510    2
+    1360244    2
+    1380400    2
+    1319784    2
+    1329637    2
+    1372992    2
+    1320089    2
+    1322823    2
+    1369912    2
+    1325099    2
+    1376624    2
+    1321481    2
+    1349663    2
+    1386217    2
+    1365744    2
+    1319236    2
+    1312467    2
+    1363550    2
+    1332003    2
+    1371126    2
+    1374667    2
+    1385899    2
+    1386015    2
+    1366015    2
+    1319301    2
+    1307513    2
+    1371748    2
+    1317120    2
+    1335438    2
+              ..
+    1327609    1
+    1360442    1
+    1368272    1
+    1368273    1
+    1368270    1
+    1368271    1
+    1331168    1
+    1368277    1
+    1327602    1
+    1383613    1
+    1389227    1
+    1377409    1
+    1318312    1
+    1351086    1
+    1386803    1
+    1380936    1
+    1309388    1
+    1321572    1
+    1386667    1
+    1321940    1
+    1382432    1
+    1383619    1
+    1351819    1
+    1380939    1
+    1383618    1
+    1309527    1
+    1356942    1
+    1380938    1
+    1380937    1
+    1309155    1
+Name: ARRESTEE_ID, Length: 1000, dtype: int64
+NIBRS_ARRESTEE_WEAPON.WEAPON_ID.value_counts(dropna=False).head(1000)                   82631 non-null object
+         1    78383
+         3     1596
+         7     1361
+         8      397
+         2      317
+        22      239
+         5      119
+         4      104
+         6       81
+        21       19
+        23       11
+        24        2
+        25        1
+ WEAPON_ID        1
+NIBRS_ARRESTEE_WEAPON.NIBRS_ARRESTEE_WEAPON_ID.value_counts(dropna=False).head(1000)    82631 non-null object
+                 1289922    1
+                 1330888    1
+                   46464    1
+                   46465    1
+                   46466    1
+                   46467    1
+                   46468    1
+                   46469    1
+                 1317102    1
+                 1317105    1
+                 1372642    1
+                 1405623    1
+                 1373683    1
+                    8492    1
+                 1284429    1
+                 1312914    1
+                 1405621    1
+                 1289064    1
+                 1410361    1
+                   46463    1
+                   46462    1
+                   46461    1
+                 1397734    1
+                 1371190    1
+                 1291267    1
+                 1412925    1
+                 1351059    1
+                 1317101    1
+                 1397736    1
+                 1397737    1
+                           ..
+                 1404629    1
+                 1367572    1
+                 1367571    1
+                 1367570    1
+                 1367577    1
+                 1367576    1
+                 1367575    1
+                 1289829    1
+                 1289826    1
+                 1289827    1
+                 1289824    1
+                 1289825    1
+                 1289822    1
+                 1289823    1
+                 1289820    1
+                 1289821    1
+                 1349069    1
+                 1322318    1
+                 1311302    1
+                 1292832    1
+                 1292833    1
+                 1379003    1
+                 1379004    1
+                 1404624    1
+                 1404627    1
+                 1379007    1
+                 1379000    1
+                 1404620    1
+                 1379002    1
+                 1292839    1
+
+dtypes: object(4)
+
+
+comment='#'
+[22] NIBRS_ARRESTEE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_ARRESTEE.csv',comment='-').rename(columns=lambda x: x.strip()). --/usr/local/lib/python2.7/site-packages/IPython/core/interactiveshell.py:2714: DtypeWarning: Columns (0,1,2,3,5,7,8,11) have mixed types. Specify dtype option on import or set low_memory=False.
+  interactivity=interactivity, compiler=compiler, result=result)
+
+Index([u'DATA_YEAR', u'ARRESTEE_ID', u'INCIDENT_ID', u'ARRESTEE_SEQ_NUM',
+       u'ARREST_DA', u'ARREST_TYPE_ID', u'M', u'OFFENSE_TYPE_ID', u'AGE_ID',
+       u'AGE_NUM', u'S', u'RACE_ID', u'ETHNICITY_ID', u'R', u'U', u'C',
+       u'AGE_RANGE_LOW_NUM', u'AGE_RANGE_HIGH_NUM'],
+      dtype='object')
+
+RangeIndex: 82517 entries, 0 to 82516
+Data columns (total 18 columns):
+NIBRS_ARRESTEE.DATA_YEAR.value_counts(dropna=False).head(1000)             82517 non-null object
+Out[259]: 
+2017          49749
+      2017    32766
+   2017           1
+ DATA_YEAR        1
+Name: DATA_YEAR, dtype: int64
+NIBRS_ARRESTEE.ARRESTEE_ID.value_counts(dropna=False).head(1000)           82517 non-null object
+#Allignment issue
+#NaN values vailable
+1310718        1
+1347257        1
+1347279        1
+    1308550    1
+1347284        1
+1347285        1
+1347286        1
+1347287        1
+1355449        1
+1347289        1
+1347290        1
+1347292        1
+1347294        1
+1347297        1
+1347299        1
+    1356039    1
+1347301        1
+1347303        1
+    1356035    1
+    1368300    1
+    1367171    1
+1347276        1
+    1379287    1
+1347259        1
+1347260        1
+1347261        1
+1347262        1
+1359940        1
+1347264        1
+1355450        1
+              ..
+1347720        1
+    1320162    1
+1347723        1
+1347724        1
+1386612        1
+1347727        1
+1347728        1
+1347729        1
+    1338150    1
+1347733        1
+1347734        1
+    1338155    1
+1347736        1
+1347737        1
+    1307243    1
+    1384475    1
+    1372559    1
+1347718        1
+1347716        1
+    1387372    1
+1387973        1
+1311188        1
+1347696        1
+1347699        1
+1347700        1
+1347701        1
+1347702        1
+1347703        1
+    1383876    1
+    1355040    1
+
+NIBRS_ARRESTEE.INCIDENT_ID.value_counts(dropna=False).head(1000)           82517 non-null object
+4712118        12
+     508014    12
+     404753    12
+894986          9
+4587711         8
+     572854     8
+1989948         8
+476970          8
+3736793         8
+    4142249     7
+    5371459     7
+     909153     7
+     391150     7
+902613          7
+    5022457     7
+5006484         7
+3401281         7
+     484246     7
+419439          7
+     895058     7
+    5048336     6
+     582590     6
+577206          6
+4574571         6
+    4129678     6
+    4997608     6
+5027891         6
+    4129646     6
+2400589         6
+    5379747     6
+               ..
+     392153     3
+    2849895     3
+     308342     3
+379642          3
+3400807         3
+469756          3
+1990847         3
+399532          3
+5360810         3
+3403299         3
+    3566567     3
+4986121         3
+412054          3
+3401767         3
+468725          3
+     606169     3
+2209753         3
+367009          3
+3400816         3
+2965559         3
+5369432         3
+393202          3
+4219184         3
+     381745     3
+4714099         3
+    3436450     3
+5028187         3
+305377          3
+4985175         3
+     612606     3
+
+NIBRS_ARRESTEE.ARRESTEE_SEQ_NUM.value_counts(dropna=False).head(1000)      82517 non-null object
+1                   43211
+               1    28218
+2                    5398
+               2     3673
+3                     850
+               3      604
+4                     194
+               4      167
+               5       61
+5                      55
+               6       22
+6                      19
+               7       11
+7                      10
+8                       6
+               8        3
+9                       3
+              12        2
+              10        2
+              11        2
+               9        2
+10                      1
+11                      1
+ARRESTEE_SEQ_NUM        1
+12                      1
+NIBRS_ARRESTEE.ARREST_DA.value_counts(dropna=False).head(1000)             82517 non-null object
+10           1737
+12           1720
+7            1720
+1            1704
+19           1692
+21           1676
+4            1670
+15           1667
+27           1666
+20           1658
+11           1645
+23           1636
+22           1628
+13           1622
+2            1622
+3            1620
+25           1610
+18           1608
+24           1607
+14           1604
+26           1601
+6            1600
+28           1600
+9            1591
+8            1580
+30           1574
+5            1561
+17           1554
+16           1535
+29           1502
+             ... 
+10           1130
+11           1128
+20           1126
+21           1122
+15           1113
+19           1107
+17           1100
+25           1092
+02           1085
+18           1085
+22           1084
+09           1078
+14           1074
+04           1059
+27           1057
+13           1054
+06           1051
+05           1049
+24           1043
+01           1040
+03           1033
+23           1021
+16           1016
+29           1005
+12           1003
+26            991
+30            991
+31            939
+31            612
+ARREST_DA       1
+
+NIBRS_ARRESTEE.ARREST_TYPE_ID.value_counts(dropna=False).head(1000)        1 non-null object
+#Null Values
+NaN               82516
+ARREST_TYPE_ID        1
+NIBRS_ARRESTEE.M.value_counts(dropna=False).head(1000)                     1 non-null object
+NaN    82516
+M          1
+
+NIBRS_ARRESTEE.OFFENSE_TYPE_ID.value_counts(dropna=False).head(1000)       1 non-null object
+NaN                82516
+OFFENSE_TYPE_ID        1
+
+NIBRS_ARRESTEE.AGE_ID.value_counts(dropna=False).head(1000)                1 non-null object
+NaN           82516
+    AGE_ID        1
+
+NIBRS_ARRESTEE.AGE_NUM.value_counts(dropna=False).head(1000)               1 non-null object
+NaN           82516
+   AGE_NUM        1
+
+NIBRS_ARRESTEE.S.value_counts(dropna=False).head(1000)                     1 non-null object
+NaN    82516
+S          1
+
+NIBRS_ARRESTEE.RACE_ID.value_counts(dropna=False).head(1000)               1 non-null object
+NaN           82516
+   RACE_ID        1
+
+NIBRS_ARRESTEE.ETHNICITY_ID.value_counts(dropna=False).head(1000)          1 non-null object
+NaN             82516
+ETHNICITY_ID        1
+
+NIBRS_ARRESTEE.R.value_counts(dropna=False).head(1000)                     1 non-null object
+NaN    82516
+R          1
+
+NIBRS_ARRESTEE.U.value_counts(dropna=False).head(1000)                     1 non-null object
+NaN    82516
+U          1
+
+NIBRS_ARRESTEE.C.value_counts(dropna=False).head(1000)                     1 non-null object
+NaN    82516
+C          1
+
+NIBRS_ARRESTEE.AGE_RANGE_LOW_NUM.value_counts(dropna=False).head(1000)     1 non-null object
+NaN                  82516
+AGE_RANGE_LOW_NUM        1
+
+NIBRS_ARRESTEE.AGE_RANGE_HIGH_NUM.value_counts(dropna=False).head(1000)    1 non-null object
+NaN                   82516
+AGE_RANGE_HIGH_NUM        1
+
+dtypes: object(18)
+
+
+[23] NIBRS_BIAS_MOTIVATION=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_BIAS_MOTIVATION.csv',comment='-').rename(columns=lambda x: x.strip()) --EmptyDataError: No columns to parse from file
+#no columns
+[24] NIBRS_CRIMINAL_ACT=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_CRIMINAL_ACT.csv',comment='-').rename(columns=lambda x: x.strip())
+Index([u'DATA_YEAR', u'CRIMINAL_ACT_ID', u'OFFENSE_ID'], dtype='object')
+
+RangeIndex: 95550 entries, 0 to 95549
+Data columns (total 3 columns):
+NIBRS_CRIMINAL_ACT.DATA_YEAR.value_counts(dropna=False).head(1000)          95550 non-null object
+      2017    95547
+ DATA_YEAR        1
+2017              1
+     2017         1
+NIBRS_CRIMINAL_ACT.CRIMINAL_ACT_ID.value_counts(dropna=False).head(1000)    95550 non-null object
+              6    47589
+              9    36436
+              8     6312
+              3     1989
+              1     1047
+              2      854
+              7      567
+             10      274
+              5      217
+              4      134
+             11       60
+             14       37
+             12       31
+             13        2
+CRIMINAL_ACT_ID        1
+
+NIBRS_CRIMINAL_ACT.OFFENSE_ID.value_counts(dropna=False).head(1000)         95550 non-null object
+2478661    3
+   4028148    3
+    915214    3
+    915215    3
+    915218    3
+   5677987    3
+   2712265    3
+   3353460    3
+   3253300    3
+   1701318    3
+    321103    3
+   2470201    3
+   2258452    3
+    541467    3
+   4708958    3
+   6164563    3
+   3262449    3
+    534562    3
+   5289082    3
+    530799    3
+   3931332    3
+   3931331    3
+   1815018    3
+   4804862    3
+   4027331    3
+   5971886    3
+   5778301    3
+   4319425    3
+   3836414    3
+    249781    3
+             ..
+   4029786    2
+   5483952    2
+   3244550    2
+   4319898    2
+   3834902    2
+   4513678    2
+   3023526    2
+   3244552    2
+   3037455    2
+   3020423    2
+   4514051    2
+    527918    2
+   3448284    2
+   3931566    2
+   3931567    2
+    247537    2
+   4029061    2
+   3741442    2
+    271148    2
+   5289103    2
+   3546914    2
+    891883    2
+   1260909    2
+   3546910    2
+   3545071    2
+    303388    2
+   5773916    2
+   5094685    2
+   4804274    2
+    294582    2
+dtypes: object(3)
+
+
+[25] NIBRS_incident=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_incident.csv',comment='-').rename(columns=lambda x: x.strip())  --/usr/local/lib/python2.7/site-packages/IPython/core/interactiveshell.py:2714: DtypeWarning: Columns (0,1,2,3,9,11) have mixed types. Specify dtype option on import or set low_memory=False.
+  interactivity=interactivity, compiler=compiler, result=result)
+Index([u'DATA_YEAR', u'AGENCY_ID', u'INCIDENT_ID', u'NIBRS_MONTH_ID', u'C',
+       u'SUBMISSIO', u'INCIDENT_', u'R', u'INCIDENT_HOUR',
+       u'CLEARED_EXCEPT_ID', u'CLEARED_E', u'INCIDENT_STATUS', u'D', u'O',
+       u'DID'],
+      dtype='object')
+
+RangeIndex: 268052 entries, 0 to 268051
+Data columns (total 15 columns):
+NIBRS_incident.DATA_YEAR.value_counts(dropna=False).head(1000)            268052 non-null object
+      2017    268038
+ DATA_YEAR         5
+     2017          2
+ 2017              2
+2017               2
+  2017             1
+    2017           1
+   2017            1
+
+NIBRS_incident.AGENCY_ID.value_counts(dropna=False).head(1000)            268052 non-null object
+     19711    54213
+     19701    28353
+     19610    19937
+     18963    10847
+     19752     9529
+     19678     7296
+     19054     6490
+     19209     5909
+     18961     5715
+     19740     5480
+     18962     5292
+     19056     5130
+     19793     4883
+     18798     4725
+     19541     4414
+     19474     4084
+     18858     3885
+     19703     3030
+     19563     2529
+     19024     2354
+     19034     2306
+     19833     1963
+     19637     1785
+     19594     1779
+     19320     1763
+     19795     1699
+     19409     1646
+     19010     1571
+     19397     1566
+     19413     1543
+              ...  
+     19759      125
+     27352      119
+     19769      118
+     19373      118
+     19632      109
+     19437      106
+     19163      101
+     18875       91
+     19067       74
+     19591       71
+     18911       67
+     18789       61
+     19663       59
+     19478       57
+     19072       56
+     19680       55
+     19311       48
+     19607       40
+     19532       37
+     19598       37
+     19315       37
+     19050       32
+     18940       32
+     18821       25
+     25878       21
+     19230       19
+     18857       10
+ AGENCY_ID        5
+     19501        3
+     25770        3
+
+NIBRS_incident.INCIDENT_ID.value_counts(dropna=False).head(1000)          268052 non-null object
+INCIDENT_ID    5
+    5042827    1
+    2653390    1
+    4548307    1
+    2583615    1
+    2653391    1
+    5042028    1
+    2583614    1
+    5042029    1
+    4587767    1
+    4548302    1
+    4587765    1
+    4587764    1
+    4587763    1
+    4587762    1
+    4587761    1
+    4587760    1
+    5423213    1
+    5423212    1
+    4548303    1
+    2583619    1
+    5423217    1
+    5423216    1
+    4587769    1
+    4587768    1
+    5042822    1
+    4207119    1
+    4207118    1
+    5380114    1
+    5380115    1
+              ..
+    2106278    1
+    5367788    1
+    5367789    1
+    5367780    1
+    5367781    1
+    5367782    1
+    5367783    1
+    5367784    1
+    5367785    1
+    5367786    1
+    5367787    1
+     903737    1
+     903730    1
+     903731    1
+     903732    1
+    2721651    1
+    2721650    1
+    2721657    1
+    2721656    1
+    2721655    1
+    2721654    1
+     643066    1
+    2866110    1
+    2866111    1
+    4550306    1
+    2866113    1
+    2866114    1
+    2616418    1
+    5374450    1
+    5374451    1
+
+NIBRS_incident.NIBRS_MONTH_ID.value_counts(dropna=False).head(1000)       268052 non-null object
+        110794    4922
+        224714    4848
+        179146    4765
+        156362    4740
+        201930    4611
+        133578    4598
+         19658    4471
+        247498    4441
+         88010    4404
+         65226    4303
+        270282    4132
+         42442    3978
+        110784    2571
+         65216    2517
+         88000    2485
+        133568    2387
+        179136    2347
+        156352    2345
+        201920    2325
+        224704    2317
+         19648    2305
+        247488    2263
+        270272    2246
+         42432    2245
+        247261    2045
+        270045    1971
+        179045    1806
+        110693    1778
+        133477    1764
+        201829    1764
+                  ... 
+        133556      34
+        156413      34
+         88162      34
+        110318      34
+         64750      34
+        156504      34
+        201498      34
+        224609      34
+        132833      34
+        133543      34
+        247203      34
+        269564      34
+        269763      34
+        247423      34
+         87790      34
+        132757      34
+         18915      33
+         19438      33
+        270071      33
+        224866      33
+        201162      33
+        179124      33
+        224534      33
+         41670      33
+         87807      33
+        133461      33
+        247556      33
+        201895      33
+        224639      33
+        269982      33
+
+NIBRS_incident.C.value_counts(dropna=False).head(1000)                    268052 non-null object
+     151696
+N    116190
+Y       161
+C         5
+
+NIBRS_incident.SUBMISSIO.value_counts(dropna=False).head(1000)            268052 non-null object
+             268047
+SUBMISSIO         5
+
+NIBRS_incident.INCIDENT_.value_counts(dropna=False).head(1000)            268052 non-null object
+01           10539
+10            9258
+20            9117
+15            9032
+03            8914
+13            8905
+06            8869
+21            8852
+27            8839
+07            8810
+05            8807
+02            8779
+28            8774
+18            8773
+19            8767
+14            8766
+11            8759
+04            8758
+17            8736
+09            8733
+24            8690
+12            8637
+22            8594
+08            8586
+16            8509
+25            8462
+23            8413
+26            8336
+30            8076
+29            7961
+31            4996
+INCIDENT_        5
+
+NIBRS_incident.R.value_counts(dropna=False).head(1000)                    5 non-null object
+NaN    268047
+R           5
+
+NIBRS_incident.INCIDENT_HOUR.value_counts(dropna=False).head(1000)        5 non-null object
+NaN              268047
+INCIDENT_HOUR         5
+
+NIBRS_incident.CLEARED_EXCEPT_ID.value_counts(dropna=False).head(1000)    5 non-null object
+NaN                  268047
+CLEARED_EXCEPT_ID         5
+
+NIBRS_incident.CLEARED_E.value_counts(dropna=False).head(1000)            5 non-null object
+NaN          268047
+CLEARED_E         5
+
+NIBRS_incident.INCIDENT_STATUS.value_counts(dropna=False).head(1000)      5 non-null object
+NaN                268047
+INCIDENT_STATUS         5
+
+NIBRS_incident.D.value_counts(dropna=False).head(1000)                    5 non-null object
+NaN    268047
+D           5
+
+NIBRS_incident.O.value_counts(dropna=False).head(1000)                    5 non-null object
+NaN    268047
+O           5
+
+NIBRS_incident.DID.value_counts(dropna=False).head(1000)                  5 non-null object
+NaN           268047
+       DID         5
+
+dtypes: object(15)
+
+[26] NIBRS_month=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_month.csv',comment='-').rename(columns=lambda x: x.strip().replace('.','_')) --/usr/local/lib/python2.7/site-packages/IPython/core/interactiveshell.py:2714: DtypeWarning: Columns (0,1,2,3,4,14) have mixed types. Specify dtype option on import or set low_memory=False.
+ #df.columns=df.columns.str.replace('#','')
+ #df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_').str.replace('(', '').str.replace(')', '') 
+# ## %timeit. : To do it, you simply type %timeit at the beginning of the row with your operation, run the cell, and see the results.
+#df.state_bottle_retail = [x.strip('$') for x in df.state_bottle_retail]
+#np.fromstring(df.state_bottle_retail.values.astype('|S7').tobytes().replace(b'$',b''), dtype='|S6')
+
+NIBRS_month.DATA_YEAR = [x.strip(' ') for x in NIBRS_month.DATA_YEAR]
+NIBRS_month.DATA_YEAR = NIBRS_month.DATA_YEAR.apply(lambda x: x.strip('DATA_YEAR'))
+NIBRS_month = NIBRS_month.apply(NIBRS_month.to_string)
+NIBRS_month.columns = [strip_non_ascii(x) for x in NIBRS_month.columns]
+NIBRS_month = NIBRS_month.infer_objects()
+NIBRS_month = NIBRS_month.astype(str)
+NIBRS_month['DATA_YEAR'] = NIBRS_month['DATA_YEAR_1'].astype(str).replace('DATA_YEAR','')
+NIBRS_month.replace('', np.NaN).dropna(how='all')
+
+#WOW#
+ NIBRS_month['DATA_YEAR_2'] = NIBRS_month['DATA_YEAR'].astype(str).apply(lambda x: x.strip(' '))
+NIBRS_month['DATA_YEAR_2'] = NIBRS_month['DATA_YEAR'].astype(str).apply(lambda x: x.strip('DATA_YEAR')).apply(lambda x: x.strip(' '))
+NIBRS_month['DATA_YEAR_2'] = NIBRS_month['DATA_YEAR'].astype(str).apply(lambda x: x.strip('DATA_YEAR')).replace('', np.NaN).dropna(how='all')
+
+  interactivity=interactivity, compiler=compiler, result=result)
+Index([u'DATA_YEAR', u'NIBRS_MONTH_ID', u'AGENCY_ID', u'MONTH_NUM',
+       u'DATA_YEAR.1', u'R', u'REPORT_DA', u'PREPARED_', u'U', u'O',
+       u'FF_LINE_NUMBER', u'D', u'DDOCNAME', u'DID', u'MONTH_PUB_STATUS'],
+      dtype='object')
+
+RangeIndex: 268052 entries, 0 to 268051
+Data columns (total 15 columns):
+NIBRS_month.DATA_YEAR.value_counts(dropna=False).head(1000)           268052 non-null object
+      2017    262134
+2017            5908
+ DATA_YEAR         5
+  2017             5
+
+NIBRS_month.NIBRS_MONTH_ID.value_counts(dropna=False).head(1000)      268052 non-null object
+        110794    4922
+        224714    4848
+        179146    4765
+        156362    4740
+        133578    4598
+         19658    4471
+        247498    4441
+         88010    4404
+         65226    4303
+        270282    4132
+         42442    3978
+        201930    3877
+        110784    2571
+         65216    2517
+         88000    2485
+        133568    2387
+        179136    2347
+        156352    2345
+        224704    2317
+         19648    2305
+        247488    2263
+        270272    2246
+        247261    2045
+        270045    1971
+        201920    1930
+        179045    1806
+        110693    1778
+         42432    1777
+        201829    1764
+        133477    1764
+                  ... 
+        156287      35
+        156173      35
+        201908      35
+        247203      34
+        247423      34
+        269564      34
+        132757      34
+        269763      34
+        247463      34
+         87790      34
+         64750      34
+        133556      34
+        224609      34
+        179203      34
+        156413      34
+        202071      34
+        133398      34
+        132833      34
+         88162      34
+        110318      34
+        133543      34
+        178428      34
+        110719      34
+        269850      34
+        201498      34
+        156504      34
+        247556      33
+        224534      33
+        270071      33
+        269982      33
+
+NIBRS_month.AGENCY_ID.value_counts(dropna=False).head(1000)           268052 non-null object
+     19711    53479
+     19701    27490
+     19610    18514
+     18963    10847
+     19752     9529
+     19678     6702
+     19054     6490
+     18961     5715
+     19209     5527
+     19740     5423
+     18962     5292
+     19056     5130
+     19793     4883
+     18798     4725
+     19541     4086
+     19474     4084
+     18858     3885
+     19703     3030
+     19024     2354
+     19034     2306
+     19563     2299
+     19833     1963
+     19320     1763
+     19637     1727
+     19795     1699
+     19409     1646
+     19594     1627
+     19010     1571
+     19397     1566
+     19413     1543
+              ...  
+19562            47
+19645            41
+     19607       40
+19671            38
+19619            37
+     19315       37
+     19598       37
+19733            36
+     19532       33
+19676            33
+     19050       32
+     18940       32
+19531            27
+     18821       25
+19657            25
+19508            23
+19581            22
+     25878       21
+     19230       19
+19254            18
+19185            18
+18777            18
+18754            14
+     18857       10
+ AGENCY_ID        5
+19545             5
+19532             4
+     19501        3
+     25770        3
+19571             1
+
+NIBRS_month.MONTH_NUM.value_counts(dropna=False).head(1000)           268052 non-null object
+        11    24258
+        10    23471
+         5    23426
+        12    23422
+         7    23287
+         8    22811
+         6    22622
+         4    21274
+         3    21050
+         9    20766
+         1    20762
+         2    14990
+2              3991
+9              1783
+3               134
+ MONTH_NUM        5
+
+NIBRS_month.DATA_YEAR_1.value_counts(dropna=False).head(1000)         268052 non-null object #column name has .1
+      2017    262139
+2017            5908
+ DATA_YEAR         5
+
+NIBRS_month.R.value_counts(dropna=False).head(1000)                   268052 non-null object
+
+NIBRS_month.REPORT_DA.value_counts(dropna=False).head(1000)           268052 non-null object
+
+NIBRS_month.PREPARED_.value_counts(dropna=False).head(1000)           268052 non-null object
+
+NIBRS_month.U.value_counts(dropna=False).head(1000)                   268052 non-null object
+
+NIBRS_month.O.value_counts(dropna=False).head(1000)                   268052 non-null object
+
+NIBRS_month.FF_LINE_NUMBER.value_counts(dropna=False).head(1000)      268052 non-null object
+
+NIBRS_month.D.value_counts(dropna=False).head(1000)                   268052 non-null object
+
+NIBRS_month.DDOCNAME.value_counts(dropna=False).head(1000)            268052 non-null object
+
+NIBRS_month.DID.value_counts(dropna=False).head(1000)                 268052 non-null object
+
+NIBRS_month.MONTH_PUB_STATUS.value_counts(dropna=False).head(1000)    268052 non-null object
+
+dtypes: object(15)
+
+
+
+[27] NIBRS_OFFENDER=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_OFFENDER.csv',comment='-').rename(columns=lambda x: x.strip())
+Index([u'DATA_YEAR', u'OFFENDER_ID', u'INCIDENT_ID', u'OFFENDER_SEQ_NUM',
+       u'AGE_ID', u'AGE_NUM', u'S', u'RACE_ID', u'ETHNICITY_ID',
+       u'FF_LINE_NUMBER', u'AGE_RANGE_LOW_NUM', u'AGE_RANGE_HIGH_NUM'],
+      dtype='object')
+
+RangeIndex: 311477 entries, 0 to 311476
+Data columns (total 12 columns):
+NIBRS_OFFENDER.DATA_YEAR.value_counts(dropna=False).head(1000)             311477 non-null object
+      2017    311466
+ DATA_YEAR         6
+  2017             2
+   2017            2
+ 2017              1
+Name: DATA_YEAR, dtype: int64
+
+NIBRS_OFFENDER.OFFENDER_ID.value_counts(dropna=False).head(1000)           311477 non-null object
+NIBRS_OFFENDER.INCIDENT_ID.value_counts(dropna=False).head(1000)           311477 non-null object
+NIBRS_OFFENDER.OFFENDER_SEQ_NUM.value_counts(dropna=False).head(1000)      311477 non-null object
+NIBRS_OFFENDER.AGE_ID.value_counts(dropna=False).head(1000)                311477 non-null object
+NIBRS_OFFENDER.AGE_NUM.value_counts(dropna=False).head(1000)               311477 non-null object
+NIBRS_OFFENDER.S.value_counts(dropna=False).head(1000)                     311477 non-null object
+NIBRS_OFFENDER.RACE_ID.value_counts(dropna=False).head(1000)               311477 non-null object
+NIBRS_OFFENDER.ETHNICITY_ID.value_counts(dropna=False).head(1000)          311477 non-null object
+NIBRS_OFFENDER.FF_LINE_NUMBER.value_counts(dropna=False).head(1000)        311477 non-null object
+NIBRS_OFFENDER.AGE_RANGE_LOW_NUM.value_counts(dropna=False).head(1000)     311477 non-null object
+NIBRS_OFFENDER.AGE_RANGE_HIGH_NUM.value_counts(dropna=False).head(1000)    311477 non-null object
+dtypes: object(12)
+
+
+
+[28] NIBRS_OFFENSE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_OFFENSE.csv',comment='-').rename(columns=lambda x: x.strip())  --/usr/local/lib/python2.7/site-packages/IPython/core/interactiveshell.py:2714: DtypeWarning: Columns (0,1,2,3,5) have mixed types. Specify dtype option on import or set low_memory=False.
+  interactivity=interactivity, compiler=compiler, result=result)
+
+Index([u'DATA_YEAR', u'OFFENSE_ID', u'INCIDENT_ID', u'OFFENSE_TYPE_ID', u'A',
+       u'LOCATION_ID', u'NUM_PREMISES_ENTERED', u'M', u'FF_LINE_NUMBER'],
+      dtype='object')
+
+NIBRS_OFFENSE.DATA_YEAR.value_counts(dropna=False).head(1000)               290446 non-null object
+      2017    262132
+2017           28302
+ DATA_YEAR         5
+   2017            2
+  2017             1
+     2017          1
+ 2017              1
+    2017           1
+2017               1
+
+NIBRS_OFFENSE.OFFENSE_ID.value_counts(dropna=False).head(1000)              290446 non-null object
+NIBRS_OFFENSE.INCIDENT_ID.value_counts(dropna=False).head(1000)             290446 non-null object
+NIBRS_OFFENSE.OFFENSE_TYPE_ID.value_counts(dropna=False).head(1000)         290446 non-null object
+NIBRS_OFFENSE.A.value_counts(dropna=False).head(1000)                       290446 non-null object
+NIBRS_OFFENSE.LOCATION_ID.value_counts(dropna=False).head(1000)             290446 non-null object
+NIBRS_OFFENSE.NUM_PREMISES_ENTERED.value_counts(dropna=False).head(1000)    290446 non-null object
+NIBRS_OFFENSE.M.value_counts(dropna=False).head(1000)                       290446 non-null object
+NIBRS_OFFENSE.FF_LINE_NUMBER.value_counts(dropna=False).head(1000)          290446 non-null object
+dtypes: object(9)
+
+
+[29] NIBRS_PROPERTY_DESC=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_PROPERTY_DESC.csv',comment='-').rename(columns=lambda x: x.strip())
+Index([u'DATA_YEAR', u'PROPERTY_ID', u'PROP_DESC_ID', u'PROPERTY_VALUE',
+       u'DATE_RECO', u'NIBRS_PROP_DESC_ID'],
+      dtype='object')
+RangeIndex: 327033 entries, 0 to 327032
+Data columns (total 6 columns):
+NIBRS_PROPERTY_DESC.DATA_YEAR.value_counts(dropna=False).head(1000)             327033 non-null object
+      2017    327019
+ DATA_YEAR         6
+  2017             2
+     2017          2
+ 2017              1
+    2017           1
+   2017            1
+2017               1
+
+PROPERTY_ID           327033 non-null object
+PROP_DESC_ID          327033 non-null object
+PROPERTY_VALUE        327033 non-null object
+DATE_RECO             327033 non-null object
+NIBRS_PROPERTY_DESC.NIBRS_PROP_DESC_ID.value_counts(dropna=False).head(1000)    295106 non-null object
+NaN                   31927.           #NaN avalibale
+NIBRS_PROP_DESC_ID        6
+           2253645        1
+           5463750        1
+           5054215        1
+           1155294        1
+           6161940        1
+           5257508        1
+           1346402        1
+            303189        1
+           1656015        1
+           5054217        1
+           1656014        1
+           1286248        1
+           3574647        1
+           2428541        1
+           4671482        1
+           4671483        1
+           5054216        1
+            676391        1
+           3143219        1
+           3528697        1
+           3249275        1
+           3249274        1
+           3595622        1
+           5254050        1
+           3249278        1
+           3101182        1
+           3528696        1
+           2358755        1
+                      ...  
+            483530        1
+           1341959        1
+            848681        1
+            848685        1
+           3353601        1
+           4184497        1
+           1985299        1
+           3014220        1
+           4732590        1
+            569381        1
+            569380        1
+           4184496        1
+           4184495        1
+           3062046        1
+           2415376        1
+           2415377        1
+            248266        1
+            176513        1
+           2060437        1
+            176511        1
+           2415378        1
+           3062044        1
+           3608282        1
+           6271658        1
+           6271657        1
+           6271656        1
+           6271655        1
+           6271654        1
+            482972        1
+           6271659        1
+
+dtypes: object(6)
+
+
+[30] NIBRS_PROPERTY=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_PROPERTY.csv',comment='-').rename(columns=lambda x: x.strip())
+Index([u'DATA_YEAR', u'PROPERTY_ID', u'INCIDENT_ID', u'PROP_LOSS_ID',
+       u'STOLEN_COUNT', u'RECOVERED_COUNT', u'FF_LINE_NUMBER'],
+      dtype='object')
+
+RangeIndex: 240144 entries, 0 to 240143
+Data columns (total 7 columns):
+NIBRS_PROPERTY.DATA_YEAR.value_counts(dropna=False).head(1000)          240144 non-null object
+      2017    240129
+ DATA_YEAR         4
+  2017             2
+     2017          2
+    2017           2
+   2017            2
+2017               2
+ 2017              1
+Name: DATA_YEAR, dtype: int64
+
+NIBRS_PROPERTY.PROPERTY_ID.value_counts(dropna=False).head(1000)        240144 non-null object
+PROPERTY_ID    4
+     768404    1
+    4989289    1
+    2357149    1
+    3767050    1
+    1283314    1
+    2357142    1
+    2357143    1
+    2357140    1
+    2357141    1
+    2357146    1
+    2357147    1
+    2357144    1
+    2357145    1
+    4989288    1
+    4989282    1
+    4852854    1
+      30165    1
+      30166    1
+    4989281    1
+    4989286    1
+    4989287    1
+    4989284    1
+    4989285    1
+    2219752    1
+    2219753    1
+    2219750    1
+    2219751    1
+    2219756    1
+    2357148    1
+              ..
+    1920591    1
+    3001390    1
+    2754050    1
+     289672    1
+    1204209    1
+    4400713    1
+    3884876    1
+    3884877    1
+    3884874    1
+    3884875    1
+    1892026    1
+    3884879    1
+     289671    1
+     482539    1
+    1125939    1
+    1125938    1
+    3770955    1
+     289677    1
+    1125933    1
+    1125932    1
+    1125931    1
+    2220121    1
+    4037281    1
+    1125936    1
+    1125935    1
+    1890062    1
+    1331168    1
+     989126    1
+    1575088    1
+    2773403    1
+
+NIBRS_PROPERTY.INCIDENT_ID.value_counts(dropna=False).head(1000)        240144 non-null object
+NIBRS_PROPERTY.PROP_LOSS_ID.value_counts(dropna=False).head(1000)       240144 non-null object
+NIBRS_PROPERTY.STOLEN_COUNT.value_counts(dropna=False).head(1000)       240144 non-null object
+NIBRS_PROPERTY.RECOVERED_COUNT.value_counts(dropna=False).head(1000)    240144 non-null object
+Out[522]: 
+                   233586
+              1      5526
+              0       945
+              2        77
+RECOVERED_COUNT         4
+              4         3
+              3         2
+              5         1
+NIBRS_PROPERTY.FF_LINE_NUMBER.value_counts(dropna=False).head(1000)     240144 non-null object #blank
+                  240140
+FF_LINE_NUMBER         4
+
+dtypes: object(7)
+
+
+[31] NIBRS_SUSPECT_USING=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_SUSPECT_USING.csv',comment='-').rename(columns=lambda x: x.strip()) --/usr/local/lib/python2.7/site-packages/IPython/core/interactiveshell.py:2714: DtypeWarning: Columns (0,1,2) have mixed types. Specify dtype option on import or set low_memory=False.
+  interactivity=interactivity, compiler=compiler, result=result)
+Index([u'DATA_YEAR', u'SUSPECT_USING_ID', u'OFFENSE_ID'], dtype='object')
+
+RangeIndex: 292274 entries, 0 to 292273
+Data columns (total 3 columns):
+NIBRS_SUSPECT_USING.DATA_YEAR.value_counts(dropna=False).head(1000)           292274 non-null object
+      2017    262132
+2017           30130
+ DATA_YEAR         5
+2017               3
+  2017             2
+    2017           2
+Name: DATA_YEAR, dtype: int64
+
+SUSPECT_USING_ID    292274 non-null object
+OFFENSE_ID          292274 non-null object
+dtypes: object(3)
+
+
+[32] NIBRS_SUSPECTED_DRUG=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_SUSPECTED_DRUG.csv',comment='-').rename(columns=lambda x: x.strip())
+
+Index([u'DATA_YEAR', u'SUSPECTED_DRUG_TYPE_ID', u'PROPERTY_ID',
+       u'EST_DRUG_QTY', u'DRUG_MEASURE_TYPE_ID', u'NIBRS_SUSPECTED_DRUG_ID'],
+      dtype='object')
+
+NIBRS_SUSPECTED_DRUG.DATA_YEAR.value_counts(dropna=False).head(1000)                  35945 non-null int64
+2017    35945
+Name: DATA_YEAR, dtype: int64
+
+SUSPECTED_DRUG_TYPE_ID     35945 non-null int64
+PROPERTY_ID                35945 non-null int64
+NIBRS_SUSPECTED_DRUG.EST_DRUG_QTY.value_counts(dropna=False).head(1000)               35945 non-null float64
+0.000      2250
+1.000      1823
+0.100       907
+0.200       829
+0.500       723
+2.000       672
+0.300       668
+0.400       630
+0.010       534
+0.600       484
+0.800       419
+3.000       380
+0.700       377
+0.900       359
+0.020       346
+0.050       335
+0.040       312
+0.030       312
+1.100       280
+4.000       274
+1.500       270
+1.400       262
+0.070       248
+1.200       243
+1.300       240
+0.060       237
+5.000       228
+0.080       226
+0.001       210
+0.150       191
+           ... 
+0.511         3
+15.900        3
+13.020        3
+4.620         3
+5.980         3
+0.281         3
+0.538         3
+3.820         3
+0.159         3
+0.365         3
+4.730         3
+46.900        3
+41.900        3
+5.220         3
+3.660         3
+24.300        3
+5.130         3
+6.220         3
+23.700        3
+5.670         3
+147.000       3
+26.200        3
+4.410         3
+15.750        3
+0.119         3
+0.386         3
+0.427         3
+5.470         3
+24.800        3
+97.000        3
+
+DRUG_MEASURE_TYPE_ID       35945 non-null object
+NIBRS_SUSPECTED_DRUG_ID    35945 non-null int64
+dtypes: float64(1), int64(4), object(1)
+
+
+ [33] NIBRS_VICTIM_CIRCUMSTANCES=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_VICTIM_CIRCUMSTANCES.csv',comment='-').rename(columns=lambda x: x.strip())
+
+Index([u'DATA_YEAR', u'VICTIM_ID', u'CIRCUMSTANCES_ID',
+       u'JUSTIFIABLE_FORCE_ID'],
+      dtype='object')
+
+RangeIndex: 12003 entries, 0 to 12002
+Data columns (total 4 columns):
+NIBRS_VICTIM_CIRCUMSTANCES.DATA_YEAR.value_counts(dropna=False).head(1000)               12003 non-null int64
+2017    12003
+
+VICTIM_ID               12003 non-null int64
+CIRCUMSTANCES_ID        12003 non-null int64
+JUSTIFIABLE_FORCE_ID    12003 non-null object
+
+
+[34] NIBRS_VICTIM_INJURY=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_VICTIM_INJURY.csv',comment='-').rename(columns=lambda x: x.strip())
+Index([u'DATA_YEAR', u'VICTIM_ID', u'INJURY_ID'], dtype='object')
+
+RangeIndex: 66816 entries, 0 to 66815
+Data columns (total 3 columns):
+NIBRS_VICTIM_INJURY.DATA_YEAR.value_counts(dropna=False).head(1000)    66816 non-null object
+
+Out[445]: 
+      2017    66813
+    2017          1
+2017              1
+ DATA_YEAR        1
+
+VICTIM_ID    66816 non-null object
+INJURY_ID    66816 non-null object
+dtypes: object(3)
+
+
+[35] NIBRS_VICTIM_OFFENDER_REL=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_VICTIM_OFFENDER_REL.csv',comment='-').rename(columns=lambda x: x.strip())
+Index([u'DATA_YEAR', u'VICTIM_ID', u'OFFENDER_ID', u'RELATIONSHIP_ID',
+       u'NIBRS_VICTIM_OFFENDER_ID'],
+      dtype='object')
+
+RangeIndex: 87278 entries, 0 to 87277
+Data columns (total 5 columns):
+NIBRS_VICTIM_OFFENDER_REL.DATA_YEAR.value_counts(dropna=False).head(1000)                   87278 non-null object
+Out[524]: 
+      2017    87275
+    2017          1
+ DATA_YEAR        1
+2017              1
+
+VICTIM_ID                   87278 non-null object
+OFFENDER_ID                 87278 non-null object
+RELATIONSHIP_ID             87278 non-null object
+NIBRS_VICTIM_OFFENDER_ID    87278 non-null object
+dtypes: object(5)
+
+
+[36] NIBRS_VICTIM_OFFENSE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_VICTIM_OFFENSE.csv',comment='-').rename(columns=lambda x: x.strip())
+Index([u'DATA_YEAR', u'VICTIM_ID', u'OFFENSE_ID'], dtype='object')
+
+RangeIndex: 313744 entries, 0 to 313743
+Data columns (total 3 columns):
+NIBRS_VICTIM_OFFENSE.DATA_YEAR.value_counts(dropna=False).head(1000)     313744 non-null object
+Out[525]: 
+      2017    313729
+ DATA_YEAR         6
+  2017             3
+    2017           3
+2017               3
+
+VICTIM_ID     313744 non-null object
+OFFENSE_ID    313744 non-null object
+dtypes: object(3)
+
+
+[37] NIBRS_VICTIM=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_VICTIM.csv',comment='-').rename(columns=lambda x: x.strip())  --/usr/local/lib/python2.7/site-packages/IPython/core/interactiveshell.py:2714: DtypeWarning: Columns (0,1,2,3,4,8,9,11,12) have mixed types. Specify dtype option on import or set low_memory=False.
+  interactivity=interactivity, compiler=compiler, result=result)
+
+Index([u'DATA_YEAR', u'VICTIM_ID', u'INCIDENT_ID', u'VICTIM_SEQ_NUM',
+       u'VICTIM_TYPE_ID', u'ASSIGNMENT_TYPE_ID', u'ACTIVITY_TYPE_ID',
+       u'OUTSIDE_AGENCY_ID', u'AGE_ID', u'AGE_NUM', u'S', u'RACE_ID',
+       u'ETHNICITY_ID', u'R', u'FF_LINE_NUMBER', u'AGE_RANGE_LOW_NUM',
+       u'AGE_RANGE_HIGH_NUM'],
+      dtype='object')
+
+RangeIndex: 297052 entries, 0 to 297051
+Data columns (total 17 columns):
+NIBRS_VICTIM.DATA_YEAR.value_counts(dropna=False).head(1000)             297052 non-null object
+Out[526]: 
+      2017    163831
+2017          133212
+ DATA_YEAR         5
+     2017          1
+    2017           1
+   2017            1
+2017               1
+
+VICTIM_ID             297052 non-null object
+INCIDENT_ID           297052 non-null object
+VICTIM_SEQ_NUM        297052 non-null object
+VICTIM_TYPE_ID        297052 non-null object
+ASSIGNMENT_TYPE_ID    297052 non-null object
+ACTIVITY_TYPE_ID      297052 non-null object
+OUTSIDE_AGENCY_ID     297052 non-null object
+AGE_ID                297052 non-null object
+AGE_NUM               297052 non-null object
+S                     297052 non-null object
+RACE_ID               297052 non-null object
+ETHNICITY_ID          297052 non-null object
+R                     297052 non-null object
+NIBRS_VICTIM.FF_LINE_NUMBER.value_counts(dropna=False).head(1000)         297052 non-null object
+Out[527]: 
+                  297047
+FF_LINE_NUMBER         5
+Name: FF_LINE_NUMBER, dtype: int64
+
+AGE_RANGE_LOW_NUM     297052 non-null object
+AGE_RANGE_HIGH_NUM    297052 non-null object
+dtypes: object(17)
+
+
+
+[38] NIBRS_WEAPON=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_WEAPON.csv',comment='-').rename(columns=lambda x: x.strip())
+
+Index([u'DATA_YEAR', u'WEAPON_ID', u'OFFENSE_ID', u'NIBRS_WEAPON_ID'], dtype='object')
+
+RangeIndex: 63632 entries, 0 to 63631
+Data columns (total 4 columns):
+NIBRS_WEAPON.DATA_YEAR.value_counts(dropna=False).head(1000)          63632 non-null object
+Out[528]: 
+      2017    63630
+2017              1
+ DATA_YEAR        1
+Name: DATA_YEAR, dtype
+
+WEAPON_ID          63632 non-null object
+OFFENSE_ID         63632 non-null object
+NIBRS_WEAPON_ID    63632 non-null object
+dtypes: object(4)
+
+
+[39] REF_STATE=pd.read_csv('/Users/arunsingh/Downloads/TX/REF_STATE.csv',comment='-').rename(columns=lambda x: x.strip().replace('.','_'))
+
+Index([u'STATE_ID', u'DIVISION_ID', u'STATE_NAME', u'ST', u'ST.1', u'ST.2',
+       u'ST.3', u'STATE_PUB_FREQ_MONTHS', u'CHANGE_USER'],
+      dtype='object')
+
+Index([u'STATE_ID', u'DIVISION_ID', u'STATE_NAME', u'ST', u'ST_1', u'ST_2',
+       u'ST_3', u'STATE_PUB_FREQ_MONTHS', u'CHANGE_USER'],
+      dtype='object')
+
+RangeIndex: 59 entries, 0 to 58
+Data columns (total 9 columns):
+STATE_ID                 59 non-null int64
+DIVISION_ID              59 non-null int64
+STATE_NAME               59 non-null object
+ST                       59 non-null int64
+ST_1                     59 non-null object
+ST_2                     59 non-null object
+ST_3                     59 non-null object
+STATE_PUB_FREQ_MONTHS    59 non-null int64
+CHANGE_USER              59 non-null object
+dtypes: int64(4), object(5)
+
+
+[40] REF_RACE=pd.read_csv('/Users/arunsingh/Downloads/TX/REF_RACE.csv',comment='-').rename(columns=lambda x: x.strip())  --ParserError: Error tokenizing data. C error: Expected 7 fields in line 9, saw 9
+
+
+[41] REF_RACE = pd.read_csv('/Users/arunsingh/Downloads/TX/REF_RACE.csv', sep=r',(?!\s)',engine='python',comment='-').rename(columns=lambda x: x.strip())
+
+REF_RACE['RACE_DESC_1'] = REF_RACE['RACE_DESC'].astype(str).apply(lambda x: x.strip('DATA_YEAR')).apply(lambda x: x.strip(' ')).replace('', np.NaN)
+
+REF_RACE.RACE_DESC = [x.replace(',','/') for x in REF_RACE.RACE_DESC]
+
+csvfile = '/Users/arunsingh/Downloads/TX/REF_RACE.csv'
+with open(csvfile, 'r') as fin, open('new_'+csvfile, 'w') as fout:
+    reader = csv.reader(fin, newline='', lineterminator='\n')
+    writer = csv.writer(fout, newline='', lineterminator='\n')
+    if you_have_headers:
+        writer.writerow(next(reader) + [new_heading])
+    for row, val in zip(reader, data)
+        writer.writerow(row + [data])
+
+
+
+[42] agencies=pd.read_csv('/Users/arunsingh/Downloads/TX/agencies.csv',comment='-').rename(columns=lambda x: x.strip())
+Index([u'yearly_agency_id', u'agency_id', u'data_year', u'ori', u'legacy_ori',
+       u'covered_by_legacy_ori', u'direct_contributor_flag', u'dormant_flag',
+       u'dormant_year', u'reporting_type', u'ucr_agency_name',
+       u'ncic_agency_name', u'pub_agency_name', u'pub_agency_unit',
+       u'agency_status', u'state_id', u'state_name', u'state_abbr',
+       u'state_postal_abbr', u'division_code', u'division_name',
+       u'region_code', u'region_name', u'region_desc', u'agency_type_name',
+       u'population', u'submitting_agency_id', u'sai',
+       u'submitting_agency_name', u'suburban_area_flag',
+       u'population_group_id', u'population_group_code',
+       u'population_group_desc', u'parent_pop_group_code',
+       u'parent_pop_group_desc', u'mip_flag', u'pop_sort_order',
+       u'summary_rape_def', u'pe_reported_flag', u'male_officer',
+       u'male_civilian', u'male_total', u'female_officer', u'female_civilian',
+       u'female_total', u'officer_rate', u'employee_rate', u'nibrs_cert_date',
+       u'nibrs_start_date', u'nibrs_leoka_start_date', u'nibrs_ct_start_date',
+       u'nibrs_multi_bias_start_date', u'nibrs_off_eth_start_date',
+       u'covered_flag', u'county_name', u'msa_name', u'publishable_flag',
+       u'participated', u'nibrs_participated'],
+      dtype='object')
+
+Data columns (total 59 columns):
+yearly_agency_id               24267 non-null int64
+agency_id                      24267 non-null int64
+data_year                      24267 non-null int64
+ori                            24267 non-null object
+legacy_ori                     24267 non-null object
+covered_by_legacy_ori          4297 non-null object
+direct_contributor_flag        24267 non-null object
+dormant_flag                   24267 non-null object
+dormant_year                   1486 non-null float64
+reporting_type                 24267 non-null object
+ucr_agency_name                24267 non-null object
+ncic_agency_name               23514 non-null object
+pub_agency_name                24267 non-null object
+pub_agency_unit                3268 non-null object
+agency_status                  24267 non-null object
+state_id                       24267 non-null int64
+state_name                     24267 non-null object
+state_abbr                     24267 non-null object
+state_postal_abbr              24267 non-null object
+division_code                  24267 non-null int64
+division_name                  24267 non-null object
+region_code                    24267 non-null int64
+region_name                    24267 non-null object
+region_desc                    24267 non-null object
+agency_type_name               24267 non-null object
+population                     24267 non-null int64
+submitting_agency_id           24263 non-null float64
+sai                            24263 non-null object
+submitting_agency_name         24263 non-null object
+suburban_area_flag             22755 non-null object
+population_group_id            24267 non-null int64
+population_group_code          24267 non-null object
+population_group_desc          24267 non-null object
+parent_pop_group_code          24267 non-null int64
+parent_pop_group_desc          24267 non-null object
+mip_flag                       24267 non-null object
+pop_sort_order                 24267 non-null int64
+summary_rape_def               19970 non-null object
+pe_reported_flag               24267 non-null object
+male_officer                   13614 non-null float64
+male_civilian                  13614 non-null float64
+male_total                     13614 non-null float64
+female_officer                 13614 non-null float64
+female_civilian                13614 non-null float64
+female_total                   13614 non-null float64
+officer_rate                   13612 non-null float64
+employee_rate                  13612 non-null float64
+nibrs_cert_date                16424 non-null object
+nibrs_start_date               8317 non-null object
+nibrs_leoka_start_date         6452 non-null object
+nibrs_ct_start_date            5350 non-null object
+nibrs_multi_bias_start_date    3383 non-null object
+nibrs_off_eth_start_date       3998 non-null object
+covered_flag                   24267 non-null object
+county_name                    22073 non-null object
+msa_name                       24267 non-null object
+publishable_flag               24267 non-null object
+participated                   24267 non-null object
+nibrs_participated             24267 non-null object
+dtypes: float64(10), int64(10), object(39)
+memory usage: 10.9+ MB
+None
+
+[43] agency=pd.read_csv('/Users/arunsingh/Downloads/TX/agency_participation.csv',comment='-').rename(columns=lambda x: x.strip())
+Index([u'data_year', u'state_id', u'state_abbr', u'ori', u'population',
+       u'active', u'published', u'covered', u'nibrs_submitting',
+       u'nibrs_start_date', u'leoka_submitting', u'leoka_start_date',
+       u'pe_reported_flag', u'srs_submitting'],
+      dtype='object')
+
+RangeIndex: 24251 entries, 0 to 24250
+Data columns (total 14 columns):
+data_year           24251 non-null int64
+state_id            24251 non-null int64
+state_abbr          24251 non-null object
+ori                 24251 non-null object
+population          24251 non-null int64
+active              24251 non-null object
+published           24251 non-null object
+covered             24251 non-null object
+nibrs_submitting    24251 non-null object
+nibrs_start_date    8314 non-null object
+leoka_submitting    24251 non-null object
+leoka_start_date    6447 non-null object
+pe_reported_flag    24251 non-null object
+srs_submitting      24251 non-null object
+dtypes: int64(3), object(11)
+
+
+NIBRS_PROP_DESC_TYPE=pd.read_csv('/Users/arunsingh/Downloads/TX/NIBRS_PROP_DESC_TYPE.csv')')
+---- Second file----
+#Check Null and datatypes
+
+climate=pd.read_csv('/Users/arunsingh/Downloads/DFV-Daily-Weather-2017.tsv',delimiter='\t')
+
+RangeIndex: 365 entries, 0 to 364
+Data columns (total 10 columns):
+Date             365 non-null object
+TempMax          365 non-null int64
+TempMin          365 non-null int64
+TempAvg          365 non-null float64
+TempDep          365 non-null float64
+HDD              365 non-null int64
+CDD              365 non-null int64
+Precipitation    365 non-null object
+NewSnow          365 non-null object
+SnowDepth        365 non-null object
+dtypes: float64(2), int64(4), object(4)
+----
+
+cliamte.Date.value_counts(dropna=False).head()  
+#NR         
+climate.TempMax.value_counts(dropna=False).head()
+Out[110]: 
+94     17
+96     16
+82     15
+80     15
+95     14
+93     14
+88     13
+91     12
+86     11
+77     11
+90     11
+85     11
+66     10
+84     10
+92      9
+78      9
+83      8
+73      8
+81      7
+72      7
+76      7
+87      7
+89      7
+100     7
+74      6
+69      6
+71      6
+98      6
+79      6
+61      6
+       ..
+49      5
+99      5
+67      4
+97      4
+51      3
+58      3
+53      3
+54      3
+55      3
+57      3
+64      3
+40      3
+62      3
+63      3
+68      3
+56      2
+101     2
+35      1
+41      1
+43      1
+46      1
+44      1
+102     1
+47      1
+48      1
+50      1
+52      1
+60      1
+65      1
+27      1        
+climate.TempMin.value_counts(dropna=False).head()
+Out[112]: 
+73    15
+75    14
+74    14
+79    13
+62    12
+59    11
+70    11
+66    10
+78    10
+72    10
+69    10
+65     9
+47     9
+46     9
+45     9
+50     9
+67     9
+77     9
+49     8
+48     8
+80     8
+54     8
+51     7
+76     7
+58     7
+60     7
+43     7
+41     7
+57     6
+63     6
+42     6
+55     6
+37     5
+53     5
+56     5
+64     5
+38     4
+35     4
+61     4
+34     4
+81     4
+71     4
+36     4
+33     3
+40     3
+39     3
+32     2
+52     2
+68     2
+44     2
+23     1
+19     1
+20     1
+22     1
+83     1
+26     1
+27     1
+30     1
+14     1
+climate.TempAvg.value_counts(dropna=False).head()   
+Out[113]: 
+84.0    12
+87.0    10
+73.5     9
+84.5     8
+86.5     8
+83.0     7
+87.5     7
+61.5     7
+82.0     7
+75.5     7
+77.0     7
+79.0     7
+80.5     7
+63.5     7
+66.5     7
+75.0     6
+70.5     6
+68.0     6
+51.5     6
+74.5     6
+85.5     5
+89.0     5
+66.0     5
+71.0     5
+69.5     5
+57.0     5
+62.5     5
+64.0     4
+70.0     4
+72.0     4
+        ..
+37.5     2
+36.0     2
+71.5     2
+52.0     2
+51.0     2
+68.5     2
+60.0     2
+57.5     2
+27.0     1
+34.5     1
+23.0     1
+33.0     1
+50.0     1
+47.0     1
+29.0     1
+53.0     1
+43.0     1
+48.0     1
+46.0     1
+58.5     1
+44.5     1
+69.0     1
+90.0     1
+92.5     1
+45.5     1
+46.5     1
+43.5     1
+40.5     1
+40.0     1
+55.0     1
+
+climate.TempDep.value_counts(dropna=False).head()
+Out[114]: 
+ 6.5     5
+-0.5     4
+ 4.7     4
+ 1.3     4
+ 9.9     4
+ 9.4     4
+-1.8     4
+ 2.1     4
+ 1.1     4
+-3.6     4
+ 5.7     4
+ 4.6     4
+-2.8     4
+-3.5     4
+ 2.3     4
+ 3.9     4
+ 1.2     3
+ 8.2     3
+-0.6     3
+-3.3     3
+ 0.2     3
+-3.4     3
+ 1.6     3
+ 8.6     3
+-5.5     3
+ 3.3     3
+ 2.9     3
+ 5.2     3
+ 1.4     3
+ 4.9     3
+        ..
+-2.2     1
+ 5.4     1
+-16.3    1
+-4.2     1
+ 15.3    1
+-18.4    1
+ 9.1     1
+ 6.2     1
+ 12.3    1
+ 2.7     1
+ 7.4     1
+ 4.2     1
+ 8.9     1
+-6.4     1
+-4.9     1
+ 1.8     1
+-4.4     1
+ 13.8    1
+ 3.6     1
+ 4.8     1
+ 21.3    1
+ 7.9     1
+-12.3    1
+ 22.8    1
+-3.7     1
+-2.9     1
+-6.8     1
+ 18.1    1
+-22.4    1
+-11.0    1
+
+climate.HDD.value_counts(dropna=False).head()   
+Out[115]: 
+0     241
+1      11
+3      10
+2       9
+13      8
+8       7
+11      6
+16      6
+5       5
+7       5
+9       5
+4       5
+12      4
+10      4
+23      4
+14      4
+6       4
+20      4
+17      3
+15      3
+18      2
+19      2
+27      2
+29      2
+30      1
+32      1
+36      1
+24      1
+25      1
+38      1
+21      1
+22      1
+42      1         
+climate.CDD.value_counts(dropna=False).head() 
+Out[116]: 
+0     127
+22     18
+19     15
+9      13
+20     12
+10     12
+6      11
+16     11
+12     11
+18     11
+2      10
+17     10
+11     10
+24      9
+3       9
+5       9
+21      8
+15      8
+1       7
+13      7
+14      7
+23      7
+7       6
+8       6
+25      4
+26      3
+4       3
+28      1
+
+climate.Precipitation.value_counts(dropna=False).head()
+Out[117]: 
+0.00    254
+T        32
+0.01      8
+0.04      5
+0.02      4
+0.05      3
+0.32      3
+0.14      3
+0.17      3
+0.29      2
+0.07      2
+0.12      2
+0.51      2
+0.15      2
+0.08      2
+0.20      2
+0.33      2
+0.06      1
+0.09      1
+3.84      1
+0.43      1
+0.45      1
+0.47      1
+0.03      1
+0.46      1
+1.19      1
+0.62      1
+3.16      1
+1.20      1
+2.14      1
+0.81      1
+0.53      1
+0.99      1
+0.31      1
+0.34      1
+1.07      1
+0.74      1
+0.56      1
+0.18      1
+0.19      1
+0.50      1
+1.71      1
+0.13      1
+0.16      1
+0.73      1
+2.95      1
+1.78      1
+1.21      1
+0.27      1
+0.87      1
+0.55      1
+
+climate.NewSnow.value_counts(dropna=False).head()  
+Out[118]: 
+0.0    363
+T        1
+0.1      1      
+climate.SnowDepth.value_counts(dropna=False).head()  
+Out[119]: 
+0    364
+T      1    
