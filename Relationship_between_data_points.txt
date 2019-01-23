@@ -1,0 +1,40 @@
+Relationship between data points:
+
+The data set provided consists of dimensions, bridge tables and time series tabes. There are 3 major data points that is data rich:
+
+a) Arestee : Has relationship with :
+			- Arestee Weapon
+			- Incident
+			- Arrest type
+			- Offense type
+			- Age
+			- Race
+			- Ethnicity
+
+b) Victim : Has relationship with :
+			- Circumstances via Victim circumstances
+			- Justifiable force
+			- Injury via Victim Injury
+			- Offender via Victim Offender Relationship
+			- Offense
+			- Incident
+			- Victim type
+			- Activity Type
+			- Assignment Type
+			- Age
+			- Race
+			- Ethnicity
+
+
+c) Offender : Has relationship with :
+			- Victim via victim bridge tables
+			- Incident
+			- Property
+			- Suspected drugs
+			- Offense
+			- Arestee
+			- ge
+			- Race
+			- Ethnicity
+
+
